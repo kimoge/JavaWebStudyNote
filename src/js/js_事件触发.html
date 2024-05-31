@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>小标题</title>
+      
+        <script>
+            // 页面加载完毕事件,浏览器加载完整个文档行为
+            window.onload=function(){
+                var in1 =document.getElementById("in1");
+                // 通过DOM编程绑定事件
+                in1.onchange=testChange
+
+                var btn1 =document.getElementById("btn1");
+                btn1.onclick=function (){
+                    console.log("按钮点击了")
+                    // 调用事件方法触发事件
+                    in1.onchange()
+                }
+            }
+            function testChange(){
+                console.log("内容改变")
+                console.log(event.target.value);
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="in1" type="text" />
+        <br>
+        <button id="btn1">按钮</button>
+    </body>
+</html>

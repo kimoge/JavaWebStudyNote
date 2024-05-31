@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>事件绑定</title>
+      
+        <script>
+            function testDown1(){
+                console.log("down1")
+            }
+            function testDown2(){
+                console.log("down2")
+            }
+            function testFocus(){
+                console.log("获得焦点")
+            }
+
+            function testBlur(){
+                console.log("失去焦点")
+            }
+            function testChange(input){
+                console.log("内容改变")
+                console.log(input.value);
+            }
+            function testMouseOver(){
+                console.log("鼠标悬停")
+            }
+            function testMouseLeave(){
+                console.log("鼠标离开")
+            }
+            function testMouseMove(){
+                console.log("鼠标移动")
+            }
+
+            
+            window.onload=function(){
+                var in1 =document.getElementById("in1");
+                // 通过DOM编程绑定事件
+                in1.onchange=testChange
+            }
+            function testChange(){
+                console.log("内容改变")
+                console.log(event.target.value);
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <input type="text" 
+        onkeydown="testDown1(),testDown2()"
+        onfocus="testFocus()" 
+        onblur="testBlur()" 
+        onchange="testChange(this)"
+        onmouseover="testMouseOver()" 
+        onmouseleave="testMouseLeave()" 
+        onmousemove="testMouseMove()" 
+         />
+        <input id="in1" type="text"/>
+    </body>
+</html>
