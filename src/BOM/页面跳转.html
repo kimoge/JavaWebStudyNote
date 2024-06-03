@@ -1,0 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <title>小标题</title>
+  
+    <script>
+       function goBaidu(){
+            var flag =confirm("即将跳转到百度页面,本页信息即将丢失,确定吗?")
+            if(flag){
+                // 通过BOM编程地址栏url切换
+                window.location.href="http://www.baidu.com"
+            }
+       }
+      
+    </script>
+</head>
+
+<body>
+    <input type="button" value="跳转到百度" onclick="goBaidu()"/> <br>
+</body>

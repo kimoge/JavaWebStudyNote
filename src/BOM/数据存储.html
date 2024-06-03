@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function saveItem(){
+            // 让浏览器存储一些会话级数据
+            window.sessionStorage.setItem("sessionMsg","sessionValue")
+            // 让浏览器存储一些持久级数据
+            window.localStorage.setItem("localMsg","localValue")
+
+            console.log("存储数据")
+        }
+
+        function removeItem(){
+            // 删除数据
+            console.log("删除数据")
+            sessionStorage.removeItem("sessionMsg")
+            localStorage.removeItem("localMsg")
+        }
+
+        function readItem(){
+            console.log("读取数据")
+            // 读取数据
+            console.log("session:"+sessionStorage.getItem("sessionMsg"))
+            console.log("local:"+localStorage.getItem("localMsg"))
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="saveItem()">存储数据</button>
+    <button onclick="removeItem()">删除数据</button>
+    <button onclick="readItem()">读取数据</button>
+
+</body>
+</html>
