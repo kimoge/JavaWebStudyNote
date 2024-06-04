@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // 例1：验证
+        // 创建一个最简单的正则表达式对象
+        var reg = /o/;
+        // 创建一个字符串对象作为目标字符串
+        var str = 'Hello World!';
+        // 调用正则表达式对象的test()方法验证目标字符串是否满足我们指定的这个模式，返回结果true
+        console.log("/o/.test('Hello World!')=" + reg.test(str));
+
+        // 例2：匹配
+        // 创建一个最简单的正则表达式对象
+        var reg = /o/;
+        // 创建一个字符串对象作为目标字符串
+        var str = 'Hello World!';
+        // 在目标字符串中查找匹配的字符，返回匹配结果组成的数组
+        var resultArr = str.match(reg);
+        // 数组长度为1
+        console.log("resultArr.length=" + resultArr.length);
+
+        // 数组内容是o
+        console.log("resultArr[0]=" + resultArr[0]);
+
+        // 例3：替换
+        // 创建一个最简单的正则表达式对象
+        var reg = /o/;
+        // 创建一个字符串对象作为目标字符串
+        var str = 'Hello World!';
+        var newStr = str.replace(reg, '@');
+        // 只有第一个o被替换了，说明我们这个正则表达式只能匹配第一个满足的字符串
+        console.log("str.replace(reg)=" + newStr);//Hell@ World!
+
+        // 原字符串并没有变化，只是返回了一个新字符串
+        console.log("str=" + str);//str=Hello World!
+
+        // 例4：全文查找
+        //目标字符串
+        var targetStr = 'Hello WORLD!';
+
+        //g:全局匹配；i:忽略大小写
+        var reg = /o/gi;
+        //获取全部匹配
+        var resultArr = targetStr.match(reg);
+        //数组长度为1
+        console.log("resultArr.length=" + resultArr.length);
+        //遍历数组，仅得到'o'
+        for (var i = 0; i < resultArr.length; i++) {
+            console.log("resultArr[" + i + "]=" + resultArr[i]);
+        }
+
+        // 例5：字符集使用
+        //n位数字的正则
+        var targetStr = "123456789";
+        var reg = /^[0-9]{0,}$/;
+        //或者 ： var reg=/^\d*$/;
+        var b = reg.test(targetStr);//true
+        console.log(b);
+
+        //数字+字母+下划线，6-16位
+        var targetStr = "HelloWorld";
+        var reg = /^[a-z0-9A-Z_]{6,16}$/;
+        var b = reg.test(targetStr);//true
+        console.log(b);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
